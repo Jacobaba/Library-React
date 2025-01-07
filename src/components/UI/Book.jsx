@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Rating from "./Rating";
@@ -13,11 +12,9 @@ const Book = ({ book }) => {
     const image = new Image();
     image.src = book.url;
     image.onload = () => {
-      setTimeout(() => {
-        if (mountedRef.current) {
-          setImg(image);
-        }
-      }, 300);
+      if (mountedRef.current) {
+        setImg(image);
+      }
     };
     return () => {
       mountedRef.current = true;
