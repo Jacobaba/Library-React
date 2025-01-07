@@ -6,7 +6,7 @@ import Price from "./Price";
 const Book = ({ book }) => {
   const [img, setImg] = useState();
 
-  const mountedRef = useRef(false);
+  const mountedRef = useRef(true)
 
   useEffect(() => {
     const image = new Image();
@@ -19,7 +19,7 @@ const Book = ({ book }) => {
     return () => {
       mountedRef.current = true;
     };
-  });
+  }, [book.url]);
   return (
     <div className="book">
       {img ? (
